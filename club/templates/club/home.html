@@ -1,0 +1,40 @@
+{% extends 'club/base.html' %}
+
+{% block title %}Главная — Компьютерный клуб{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <h1>Добро пожаловать в компьютерный клуб</h1>
+    <p>Сеть клубов с мощными ПК, удобными тарифами и дополнительными услугами.</p>
+</section>
+
+<section class="stats">
+    <div class="stat-card">
+        <div class="stat-number">{{ tariffs_count }}</div>
+        <div class="stat-label">Тарифов</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ services_count }}</div>
+        <div class="stat-label">Услуг</div>
+    </div>
+    <div class="stat-card">
+        <div class="stat-number">{{ computers_count }}</div>
+        <div class="stat-label">Компьютеров</div>
+    </div>
+</section>
+
+{% if clubs %}
+<section>
+    <h2>Наши клубы</h2>
+    <div class="card-list">
+        {% for club in clubs %}
+        <div class="card">
+            <h3>{{ club.name }}</h3>
+            <p>{{ club.address }}</p>
+            <p>{{ club.phone }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+{% endblock %}

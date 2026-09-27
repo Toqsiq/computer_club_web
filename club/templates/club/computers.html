@@ -1,0 +1,22 @@
+{% extends 'club/base.html' %}
+
+{% block title %}Компьютеры{% endblock %}
+
+{% block content %}
+<h1>Компьютеры</h1>
+
+<div class="card-list">
+    {% for pc in computers %}
+    <div class="card">
+        <h3>ПК №{{ pc.computer_number }}</h3>
+        <p><strong>Зона:</strong> {{ pc.zone.name }}</p>
+        <p><strong>Статус:</strong> {{ pc.status.name }}</p>
+        <p>{{ pc.cpu }} / {{ pc.gpu }}</p>
+        <p>{{ pc.ram_gb }} GB RAM · {{ pc.storage_gb }} GB SSD</p>
+        <p>{{ pc.monitor }}</p>
+    </div>
+    {% empty %}
+    <p>Компьютеров пока нет.</p>
+    {% endfor %}
+</div>
+{% endblock %}

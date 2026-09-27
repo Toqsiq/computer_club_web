@@ -1,0 +1,25 @@
+{% extends 'club/base.html' %}
+
+{% block title %}Услуги{% endblock %}
+
+{% block content %}
+<div class="page-header">
+    <h1>Услуги</h1>
+    <a href="{% url 'club:service_create' %}" class="btn btn-primary">+ Добавить услугу</a>
+</div>
+
+<div class="card-list">
+    {% for service in services %}
+    <div class="card">
+        <h3>{{ service.name }}</h3>
+        <p class="price">{{ service.price }} ₽</p>
+        <p>{{ service.description }}</p>
+        <p class="status {% if service.is_active %}active{% else %}inactive{% endif %}">
+            {% if service.is_active %}Активна{% else %}Неактивна{% endif %}
+        </p>
+    </div>
+    {% empty %}
+    <p>Услуг пока нет. <a href="{% url 'club:service_create' %}">Добавить первую</a></p>
+    {% endfor %}
+</div>
+{% endblock %}
