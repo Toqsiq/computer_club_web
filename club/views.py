@@ -17,6 +17,7 @@ def home(request):
         'computers_count': computers_count,
     })
 
+# return render(...) Функция render берёт шаблон, подставляет в него данные и возвращает готовый HTTP-ответ (страницу)
 
 def tariffs_list(request):
     tariffs = Tariff.objects.all().order_by('price')
