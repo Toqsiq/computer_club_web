@@ -245,3 +245,58 @@ main.container {
     color: #606070;
     margin-top: 40px;
 }
+
+/* Nav user */
+.nav-user {
+    color: #9090a0;
+    margin-left: 24px;
+    font-size: 0.9rem;
+}
+
+/* Login */
+.login-box {
+    max-width: 420px;
+    margin: 40px auto;
+    background: #1a1a24;
+    border: 1px solid #2a2a3a;
+    border-radius: 12px;
+    padding: 32px;
+}
+
+.login-box h1 {
+    margin-bottom: 8px;
+    text-align: center;
+}
+
+.login-hint {
+    color: #9090a0;
+    font-size: 0.9rem;
+    margin-bottom: 24px;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.login-demo {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px solid #2a2a3a;
+    color: #9090a0;
+    font-size: 0.85rem;
+}
+
+.login-demo code {
+    background: #0f0f13;
+    padding: 2px 6px;
+    border-radius: 4px;
+    color: #7c5cfc;
+}
+
+.login-demo ul {
+    margin-top: 8px;
+    padding-left: 20px;
+}
+
+.message-info {
+    background: #1e3a5f;
+    color: #93c5fd;
+}

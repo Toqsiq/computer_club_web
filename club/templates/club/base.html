@@ -13,10 +13,21 @@
         <div class="container">
             <a href="{% url 'club:home' %}" class="logo">Chain of Computer Clubs</a>
             <nav class="nav">
-                <a href="{% url 'club:tariffs' %}">Тарифы</a>
-                <a href="{% url 'club:services' %}">Услуги</a>
-                <a href="{% url 'club:computers' %}">Компьютеры</a>
-                <a href="{% url 'club:clients' %}">Клиенты</a>
+                {% if employee %}
+                    {% if employee.role == 'main_admin' %}
+                        <a href="{% url 'club:tariffs' %}">Тарифы</a>
+                        <a href="{% url 'club:services' %}">Услуги</a>
+                        <a href="{% url 'club:employees' %}">Менеджеры</a>
+                    {% elif employee.role == 'club_admin' %}
+                        <a href="{% url 'club:computers' %}">Компьютеры</a>
+                        <a href="{% url 'club:clients' %}">Клиенты</a>
+                        <a href="{% url 'club:sessions' %}">Сессии</a>
+                    {% endif %}
+                    <span class="nav-user">{{ employee.full_name }} ({% if employee.role == 'main_admin' %}Admin{% elif employee.role == 'club_admin' %}Manager{% else %}{{ employee.role }}{% endif %})</span>
+                    <a href="{% url 'club:logout' %}">Выйти</a>
+                {% else %}
+                    <a href="{% url 'club:login' %}">Войти</a>
+                {% endif %}
             </nav>
         </div>
     </header>
